@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yuvi bista</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: Courier, monospace;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        #name {
+            font-size: 18px;
+            margin: 5px;
+        }
+
+        #time {
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p id="name">yuvi bista</p>
+        <p id="time"></p>
+        <a href="https://github.com/skidbins" target="_blank">github</a>
+        <a href="https://www.instagram.com/lazyuvi/" target="_blank">instagram</a>
+        <a href="https://discord.com/users/974837787461292072" target="_blank">discord</a>
+        <a href="/about.html">about</a>
+    </div>
+    <script>
+        function formatTime(date) {
+            const options = {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true,
+                timeZone: "America/New_York",
+            };
+            let time = date
+                .toLocaleString("en-US", options)
+                .replace(/(AM|PM)/, (match) => match.toLowerCase());
+            return `${date.getMonth() + 1
+                }/${date.getDate()}/${date.getFullYear()} ${time} NYC`;
+        }
+        setInterval(() => {
+            document.getElementById("time").textContent = formatTime(new Date());
+        }, 1000);
+        document.getElementById("time").textContent = formatTime(new Date());
+    </script>
+</body>
+
+</html>
